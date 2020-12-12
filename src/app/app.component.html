@@ -43,12 +43,24 @@
   </div>
   <div class="row">
     <div class="col">
-      <button class="sortButton" (click)=sortUserList()>Sort by Name</button>
+      <button class="sortButton" (click)="sortUserList()">Sort by Name</button>
     </div>
   </div>
   <div class="row pt-3 pb-3">
     <div class="col text-center">
       <app-user-card [(userList)]="userList"></app-user-card>
+    </div>
+  </div>
+  <div class="row pt-3 pb-3">
+    <div class="col col-sm-6 p-3 text-right">
+      <button class="btn btn-primary " (click)="sortUserList()">
+        Sort by Name
+      </button>
+    </div>
+    <div class="col col-sm-6 p-3 text-left">
+      <button class="btn btn-danger" (click)="sortUserList()">
+        Sort by Name
+      </button>
     </div>
   </div>
 </div>
