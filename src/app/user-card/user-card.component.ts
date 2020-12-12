@@ -8,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class UserCardComponent implements OnInit {
   userList: any;
+  selectedUser: any = [];
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -19,5 +20,18 @@ export class UserCardComponent implements OnInit {
         this.userList = data;
         console.log(data);
       });
+  }
+  selectUser(user) {
+    console.log("User Card Clicked", user);
+    if (this.selectedUser.includes(user)) {
+      let temp = this.selectedUser.filter(id => {
+        return id != user;
+      });
+      document.getElementById(user).setAttribute("class", "d-none");
+      this.selectUser = temp;
+    } else {
+      document.getElementById(user).setAttribute("class", "selectedUser");
+      this.selectedUser.push(user);
+    }
   }
 }
