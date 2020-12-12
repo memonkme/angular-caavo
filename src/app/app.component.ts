@@ -6,6 +6,7 @@ import {
   OnInit,
   ViewChild
 } from "@angular/core";
+import { SharedService } from "./shared.service";
 
 @Component({
   selector: "my-app",
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
   isUploaded: boolean = false;
   removeUpload: boolean;
   userList: any;
-  constructor(private cd: ChangeDetectorRef, private http: HttpClient) {}
+  constructor(private cd: ChangeDetectorRef, private http: HttpClient, service: SharedService) {}
   @ViewChild("Image") el: ElementRef;
 
   ngOnInit() {

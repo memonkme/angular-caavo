@@ -1,8 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class SharedService {
+  private selectedUser = new BehaviorSubject<any>([]);
+  constructor() {}
 
-  constructor() { }
-
+  setSelectedUser(data) {
+    this.selectedUser.next(data);
+  }
+  getSelectedUser(data) {
+    return this.selectedUser.asObservable();
+  }
 }

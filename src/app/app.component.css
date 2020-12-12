@@ -1,7 +1,7 @@
 .bg-color {
   background-color: rgb(26, 31, 34);
 }
-.title{
+.title {
   font-size: 2.5rem;
 }
 .group-logo-icon {
@@ -39,7 +39,7 @@ input:focus {
 .grpImgUploadBtn {
   display: none;
 }
-.sortButton{
+.sortButton {
   float: right;
   border: 1px solid whitesmoke;
   background-color: rgb(26, 31, 34);
