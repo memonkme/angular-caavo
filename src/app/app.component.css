@@ -39,3 +39,10 @@ input:focus {
 .grpImgUploadBtn {
   display: none;
 }
+.sortButton{
+  float: right;
+  border: 1px solid whitesmoke;
+  background-color: rgb(26, 31, 34);
+  color: whitesmoke;
+  border-radius: 2px;
+}
