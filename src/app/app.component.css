@@ -46,3 +46,6 @@ input:focus {
   color: whitesmoke;
   border-radius: 3px;
 }
+.btn{
+  width: 7rem;
+}
