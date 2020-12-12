@@ -7,10 +7,22 @@
   <div class="row">
     <div class="col-3">
       <div class="card p-2 bg-color">
-        <span class="group-logo text-center"><i class="fas fa-user"></i></span>
+        <span *ngIf="!isUploaded" class="group-logo-icon text-center">
+          <i class="fas fa-user"></i>
+        </span>
+        <span *ngIf="isUploaded" class="group-logo text-center">
+          <img [src]="imageUrl" class="image" />
+        </span>
+        <input
+          class="grpImgUploadBtn"
+          #Image
+          type="file"
+          (change)="handleFileInput($event)"
+        />
+
         <div class="row m-0 text-center font-white">
           <div class="col p-1">
-            <span><i class="fas fa-camera"></i></span>
+            <span (click)="Image.click()"><i class="fas fa-camera"></i></span>
             <span class="group-logo-text pl-2">Group Logo</span>
           </div>
         </div>
@@ -21,8 +33,12 @@
       <div class="groupInfo">Description</div>
     </div>
     <div class="col-6 ">
-      <div class="groupInfoInput mt-3"><input class="text-center" placeholder="group name"></div>
-      <div class="groupInfoInput mt-3"><input class="text-center" placeholder="group description"></div>
+      <div class="groupInfoInput mt-3">
+        <input class="text-center" placeholder="group name" />
+      </div>
+      <div class="groupInfoInput mt-3">
+        <input class="text-center" placeholder="group description" />
+      </div>
     </div>
   </div>
 </div>

@@ -1,11 +1,16 @@
 .bg-color {
   background-color: rgb(26, 31, 34);
 }
-.group-logo {
+.group-logo-icon {
   font-size: 10rem;
   background-color: whitesmoke;
   border-radius: 5px;
-} 
+}
+.group-logo>img {
+  border-radius: 5px;
+  width: 10rem;
+  height: 10rem;
+}
 .font-white {
   color: rgb(245, 245, 245);
 }
@@ -27,4 +32,7 @@
 }
 input:focus {
   outline: none;
+}
+.grpImgUploadBtn {
+  display: none;
 }
