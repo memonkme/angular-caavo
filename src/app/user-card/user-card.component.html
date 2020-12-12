@@ -1,6 +1,7 @@
 <div class="card p-2 m-1 bg-color" *ngFor="let user of userList">
   <span class="group-logo text-center">
     <img [src]="user.Image" class="image" />
+    <span class="selectedUser"><i class="fas fa-check-square"></i></span>
   </span>
 
   <div class="row m-0 text-center font-white">
