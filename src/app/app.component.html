@@ -1,10 +1,10 @@
 <div class="container-fluid bg-color">
   <div class="w-100">
-    <div class="m-auto w-50 text-center font-white">
+    <div class="m-auto title w-50 text-center font-white">
       Create Group
     </div>
   </div>
-  <div class="row">
+  <div class="row m-2 ">
     <div class="col-3">
       <div class="card p-2 bg-color">
         <span *ngIf="!isUploaded" class="group-logo-icon text-center">
@@ -39,6 +39,11 @@
       <div class="groupInfoInput mt-3">
         <input class="text-center" placeholder="group description" />
       </div>
+    </div>
+  </div>
+  <div class="row pt-3 pb-3">
+    <div class="col text-center">
+      <app-user-card></app-user-card>
     </div>
   </div>
 </div>

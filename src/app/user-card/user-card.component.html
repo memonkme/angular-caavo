@@ -1,0 +1,11 @@
+<div class="card p-2 m-1 bg-color" *ngFor="let user of userList">
+  <span class="group-logo text-center">
+    <img [src]="user.Image" class="image" />
+  </span>
+
+  <div class="row m-0 text-center font-white">
+    <div class="col p-1">
+      <span class="group-logo-text pl-2">{{user.name}}</span>
+    </div>
+  </div>
+</div>
