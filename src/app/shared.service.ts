@@ -9,7 +9,7 @@ export class SharedService {
   setSelectedUser(data) {
     this.selectedUser.next(data);
   }
-  getSelectedUser(data) {
+  getSelectedUser() {
     return this.selectedUser.asObservable();
   }
 }

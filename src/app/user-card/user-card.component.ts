@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, Input,  OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { SharedService } from "../shared.service";
-
 
 @Component({
   selector: "app-user-card",
@@ -13,8 +12,7 @@ export class UserCardComponent implements OnInit {
   selectedUser: any = [];
   constructor(private http: HttpClient, private service: SharedService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   selectUser(user) {
     console.log("User Card Clicked", user);
     if (this.selectedUser.includes(user)) {
@@ -25,6 +23,10 @@ export class UserCardComponent implements OnInit {
       document.getElementById(user).setAttribute("class", "selectedUser");
     }
 
-    this.service.setSelectedUser(this.selectUser);
+    this.service.setSelectedUser(
+      this.userList.filter(data => {
+        return this.selectedUser.includes(data.id);
+      })
+    );
   }
 }

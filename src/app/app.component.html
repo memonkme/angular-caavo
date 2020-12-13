@@ -34,16 +34,16 @@
     </div>
     <div class="col col-sm-6 ">
       <div class="groupInfoInput mt-3">
-        <input class="text-center" placeholder="group name" />
+        <input class="text-center" placeholder="group name" [(ngModel)]="groupDetails.groupName" />
       </div>
       <div class="groupInfoInput mt-3">
-        <input class="text-center" placeholder="group description" />
+        <input class="text-center" placeholder="group description" [(ngModel)]="groupDetails.groupDescription" />
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <button class="sortButton" (click)="sortUserList()">Sort by Name</button>
+      <button class="sortButton" (click)="sortUserList()">Sort by Name <span><i class="fas fa-long-arrow-alt-up"></i></span> <span></span> </button>
     </div>
   </div>
   <div class="row pt-3 pb-3">
@@ -53,7 +53,7 @@
   </div>
   <div class="row pt-3 pb-3">
     <div class="col col-sm-6 p-3 text-right">
-      <button class="btn btn-primary">
+      <button class="btn btn-primary" (click)="open()">
         Update
       </button>
     </div>

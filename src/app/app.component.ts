@@ -6,7 +6,9 @@ import {
   OnInit,
   ViewChild
 } from "@angular/core";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { SharedService } from "./shared.service";
+import { ModalComponent } from "./modal/modal.component";
 
 @Component({
   selector: "my-app",
@@ -14,13 +16,22 @@ import { SharedService } from "./shared.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  name = "Angular";
+  groupDetails: any = {
+    groupName: "",
+    groupDescription: "",
+    groupMembers: []
+  };
   fileToUpload: any;
   imageUrl: any = "";
   isUploaded: boolean = false;
   removeUpload: boolean;
   userList: any;
-  constructor(private cd: ChangeDetectorRef, private http: HttpClient, service: SharedService) {}
+  constructor(
+    private cd: ChangeDetectorRef,
+    private http: HttpClient,
+    private service: SharedService,
+    private modalService: NgbModal
+  ) {}
   @ViewChild("Image") el: ElementRef;
 
   ngOnInit() {
@@ -43,6 +54,14 @@ export class AppComponent implements OnInit {
       }
       return 0;
     });
+  }
+
+  open() {
+    this.service.getSelectedUser().subscribe(data => {
+      this.groupDetails.groupMembers = data;
+    })
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.groupData = this.groupDetails;
   }
 
   handleFileInput(event) {
