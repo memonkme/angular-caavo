@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     groupDescription: "",
     groupMembers: []
   };
+  ascen: boolean = false;
   fileToUpload: any;
   imageUrl: any = "";
   isUploaded: boolean = false;
@@ -44,22 +45,35 @@ export class AppComponent implements OnInit {
         console.log(data);
       });
   }
-  sortUserList() {
-    this.userList.sort(function(a, b) {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    });
+  sortUserList(flag) {
+    this.ascen = flag;
+    if (flag) {
+      this.userList.sort(function(a, b) {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+    } else {
+      this.userList.sort(function(a, b) {
+        if (a.name > b.name) {
+          return -1;
+        }
+        if (a.name < b.name) {
+          return 1;
+        }
+        return 0;
+      });
+    }
   }
 
   open() {
     this.service.getSelectedUser().subscribe(data => {
       this.groupDetails.groupMembers = data;
-    })
+    });
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.groupData = this.groupDetails;
   }
